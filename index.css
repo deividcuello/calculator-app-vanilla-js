@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+/*VARIABLES*/
+:root{
+    /*COLORS*/
+    /*
+    --colorBg: rgb(14, 0, 0);
+    */
+    --colorBg: rgba(64, 255, 0, 0.197);
+    --opacityBg: 0.5;
+    --white: rgb(255, 255, 255);
+    --colorBgHover: rgb(152, 0, 0);
+    --opInputFg: rgb(220, 220, 220);
+    --resultFg: rgb(2, 4, 0);
+    /*FONTS*/
+    --FontFamily: 'Roboto', sans-serif;
+}
+
+/*GENERAL STYLES*/
+*, *::before, *::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+html{
+    font-family: var(--FontFamily);
+}
+
+body{
+    background-image: url("https://pixahive.com/wp-content/uploads/2021/03/A-colorful-wallpaper-397160-pixahive.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+.container{
+    padding: 10px;
+}
+
+
+/*CALCULATOR APP*/
+#app{
+    width: 500px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgb(18,227,167);
+    background: radial-gradient(circle, rgba(18,227,167,1) 0%, rgba(146,115,132,1) 96%);
+    box-shadow: 10px 10px 8px -3px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 10px 10px 8px -3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 8px -3px rgba(0,0,0,0.75);
+}
+
+
+#app .display{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+    gap: 10px;
+    word-break: break-all;
+}
+
+#app .display .op-input{
+    color: var(--opInputFg);
+}
+
+#app .calculator > .number{
+    color: var(--white);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    background: transparent;
+    font-size: 20px;
+}
+
+#app .calculator > .number:hover{
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3))
+}
+
+#app .display .result{
+    color: var(--resultFg);
+    font-size: 20px;
+}
+
+#app .calculator{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: minmax(80px, auto) repeat(5, 50px);
+}
+
+#app .calculator .display{
+    grid-column: span 4;
+}
+
+#app .calculator .span-two-column{
+    grid-column: span 2;
+}
+
+#app .calculator .span-two-row{
+    grid-row: span 2;
+}
+
+@media screen and (max-width: 520px){
+    #app{
+        width: calc(100% - 50px);
+    }
+
+    #app .calculator{
+        grid-template-rows: minmax(80px, auto) repeat(5, 80px);
+    }
+}
