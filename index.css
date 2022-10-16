@@ -3,9 +3,6 @@
 /*VARIABLES*/
 :root{
     /*COLORS*/
-    /*
-    --colorBg: rgb(14, 0, 0);
-    */
     --colorBg: rgba(64, 255, 0, 0.197);
     --opacityBg: 0.5;
     --white: rgb(255, 255, 255);
